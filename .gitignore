@@ -1,0 +1,444 @@
+# =============================================================================
+# DJANGO / PYTHON
+# =============================================================================
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Distribution / packaging
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+*.db
+
+# Flask stuff
+instance/
+.webassets-cache
+
+# Scrapy stuff
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+.pybuilder/
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# poetry
+poetry.lock
+
+# pdm
+.pdm.toml
+.pdm-python
+.pdm-build/
+
+# PEP 582
+__pypackages__/
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+*.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.env.*
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# Cython debug symbols
+cython_debug/
+
+# Django migrations (optional - uncomment if you want to ignore all migrations)
+# **/migrations/*.py
+# !**/migrations/__init__.py
+
+# Django collected static files
+staticfiles/
+static/
+
+# Django media uploads
+media/
+mediafiles/
+uploads/
+
+# Local development settings
+local.py
+settings_local.py
+
+# =============================================================================
+# REACT / NODE / FRONTEND
+# =============================================================================
+
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Production build
+build/
+dist/
+out/
+
+# Misc
+.DS_Store
+*.pem
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+lerna-debug.log*
+
+# Local env files
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Vite
+.vite/
+*.local
+
+# Next.js
+.next/
+
+# Nuxt.js
+.nuxt/
+
+# Gatsby
+.cache/
+public/
+
+# Vuepress
+.vuepress/dist
+
+# Serverless
+.serverless/
+
+# FuseBox
+.fusebox/
+
+# DynamoDB Local files
+.dynamodb/
+
+# TernJS
+.tern-port
+
+# Stores VSCode versions used for testing
+.vscode-test
+
+# yarn v2
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+# =============================================================================
+# EDITORS / IDEs
+# =============================================================================
+
+# VSCode
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# IntelliJ / PyCharm / WebStorm
+.idea/
+*.iml
+*.iws
+*.ipr
+*.iws
+out/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Atom
+.atom/
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# NetBeans
+nbproject/
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# =============================================================================
+# OS / SYSTEM
+# =============================================================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.nfs*
+
+# =============================================================================
+# DATABASES / DATA
+# =============================================================================
+
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+*.sql
+*.dump
+data/
+backups/
+
+# PostgreSQL
+pgdata/
+
+# Redis
+dump.rdb
+*.rdb
+appendonly.aof
+*.aof
+
+# =============================================================================
+# LOGS / TEMP / CACHE
+# =============================================================================
+
+logs/
+*.log
+log/
+tmp/
+temp/
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+*.orig
+*.save
+
+# Cache
+.cache/
+*.cache
+__pycache__/
+
+# =============================================================================
+# SECURITY / SECRETS (NEVER COMMIT)
+# =============================================================================
+
+*.key
+*.pem
+*.cert
+*.crt
+*.p12
+*.pfx
+secrets.json
+credentials.json
+google-credentials.json
+service-account.json
+
+# SSH
+*.pub
+id_rsa
+id_dsa
+id_ecdsa
+id_ed25519
+
+# SSL
+ssl/
+certs/
+
+# =============================================================================
+# PROJECT SPECIFIC: WiFi Manager
+# =============================================================================
+
+# Router config backups (may contain passwords)
+router_configs/
+config_backups/
+
+# WhatsApp session files (if using local API)
+*.session
+*.session-journal
+
+# Bandwidth log exports (generated files)
+exports/
+reports/
+*.csv
+*.xlsx
+*.pdf
+
+# Speed test artifacts
+speedtest_results/
+
+# Generated charts/images
+charts/
+*.png
+*.jpg
+*.jpeg
+*.gif
+
+# Local avatar uploads (use cloud storage in production)
+avatars/
+
+# =============================================================================
+# DOCKER / DEPLOYMENT
+# =============================================================================
+
+# Docker
+docker-compose.override.yml
+.env.docker
+.dockerignore
+
+# Kubernetes
+k8s/secrets/
+*.secret.yaml
+*.secret.yml
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl
+
+# =============================================================================
+# MISC
+# =============================================================================
+
+# Git
+*.orig
+
+# Patch files
+*.patch
+*.diff
+
+# Archives
+*.zip
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+
+# Documentation builds
+site/
