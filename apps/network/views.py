@@ -11,12 +11,28 @@ class SubnetViewSet(viewsets.ModelViewSet):
     queryset = Subnet.objects.all()
     serializer_class = SubnetSerializer
 
+# class NetworkSettingsView(APIView):
+#     def get(self, request):
+#         settings = NetworkSettings.load()
+#         return Response(NetworkSettingsSerializer(settings).data)
+
+#     def post(self, request):
+#         settings = NetworkSettings.load()
+#         serializer = NetworkSettingsSerializer(settings, data=request.data, partial=True)
+#         serializer.is_valid(raise_exception=True)
+#         serializer.save()
+#         return Response(serializer.data)
+
 class NetworkSettingsView(APIView):
+    permission_classes = [IsAuthenticated]
+
     def get(self, request):
         settings = NetworkSettings.load()
         return Response(NetworkSettingsSerializer(settings).data)
 
     def post(self, request):
+        if request.user.role not in ['superadmin', 'admin']:
+            return Response({'detail': 'Admin privileges required.'}, status=403)
         settings = NetworkSettings.load()
         serializer = NetworkSettingsSerializer(settings, data=request.data, partial=True)
         serializer.is_valid(raise_exception=True)
