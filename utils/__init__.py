@@ -1,9 +1,10 @@
-from utils.base import RouterConnector
-from .tplink import TPLinkConnector
-from .mikrotik import MikroTikConnector
-from .cisco import CiscoConnector
-from .huawei import HuaweiConnector
-from .generic import GenericConnector
+from .base import RouterConnector
+# get from router_connectors
+from  .router_connectors.tplink import TPLinkConnector
+from .router_connectors.mikrotik import MikroTikConnector
+from .router_connectors.cisco import CiscoConnector
+from .router_connectors.huawei import HuaweiConnector
+from .router_connectors.generic import GenericConnector
 
 CONNECTOR_MAP = {
     'tp-link': TPLinkConnector,
@@ -15,8 +16,5 @@ CONNECTOR_MAP = {
 }
 
 def get_connector(router):
-    """
-    Factory: returns the correct connector instance for a router record.
-    """
     connector_class = CONNECTOR_MAP.get(router.router_type, GenericConnector)
     return connector_class(router)

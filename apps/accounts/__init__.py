@@ -1,1 +1,2 @@
-default_app_config = 'apps.accounts.apps.AccountsConfig'
+import pymysql
+pymysql.install_as_MySQLdb()

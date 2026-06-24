@@ -14,7 +14,7 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = [
             'id', 'username', 'email', 'first_name', 'last_name', 'full_name',
-            'role', 'role_display', 'phone_number', 'avatar', 'timezone',
+            'role', 'role_display', 'phone_number', 'avatar', 'user_timezone',
             'is_active', 'is_online', 'last_active', 'date_joined',
             'two_factor_enabled', 'whatsapp_notifications', 'email_notifications',
             'managed_devices_count', 'active_sessions', 'created_by'
@@ -60,7 +60,7 @@ class UserUpdateSerializer(serializers.ModelSerializer):
         model = User
         fields = [
             'first_name', 'last_name', 'email', 'phone_number',
-            'role', 'timezone', 'avatar', 'is_active',
+            'role', 'user_timezone', 'avatar', 'is_active',
             'two_factor_enabled', 'whatsapp_notifications', 'email_notifications'
         ]
 
@@ -89,7 +89,7 @@ class UserProfileSerializer(serializers.ModelSerializer):
         model = User
         fields = [
             'id', 'username', 'email', 'first_name', 'last_name',
-            'role', 'phone_number', 'avatar', 'timezone',
+            'role', 'phone_number', 'avatar', 'user_timezone',
             'two_factor_enabled', 'whatsapp_notifications', 'email_notifications',
             'permissions', 'date_joined', 'last_active'
         ]

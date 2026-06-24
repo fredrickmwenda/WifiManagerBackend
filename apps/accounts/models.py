@@ -14,7 +14,7 @@ class User(AbstractUser):
     role = models.CharField(max_length=20, choices=ROLE_CHOICES, default='viewer')
     phone_number = models.CharField(max_length=20, blank=True)
     avatar = models.ImageField(upload_to='avatars/', blank=True, null=True)
-    timezone = models.CharField(max_length=50, default='Africa/Nairobi')
+    user_timezone = models.CharField(max_length=50, default='Africa/Nairobi')  # <-- renamed
     last_active = models.DateTimeField(default=timezone.now)
     is_online = models.BooleanField(default=False)
     two_factor_enabled = models.BooleanField(default=False)
@@ -32,7 +32,6 @@ class User(AbstractUser):
         return f"{self.username} ({self.role})"
 
     def save(self, *args, **kwargs):
-        # Auto-assign to Django Group based on role
         super().save(*args, **kwargs)
         if self.role:
             group, _ = Group.objects.get_or_create(name=self.role.capitalize())

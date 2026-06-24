@@ -13,7 +13,7 @@ class Notification(models.Model):
         ('read', 'Read'),
     ]
 
-    notification_type = models.CharField(max_length=20, choices=TYPE_CHOICES)
+    notification_type = models.CharField(max_length=25, choices=TYPE_CHOICES)  # <-- changed from 20
     device = models.ForeignKey('devices.Device', on_delete=models.CASCADE, related_name='notifications', null=True, blank=True)
     title = models.CharField(max_length=200)
     message = models.TextField()

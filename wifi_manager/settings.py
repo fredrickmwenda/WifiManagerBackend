@@ -27,8 +27,7 @@ SECRET_KEY = config('SECRET_KEY', default='change-me-in-production')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['wifi-backend.servolltech.co.ke', 'localhost', '127.0.0.1']
 
 # Application definition
 
@@ -47,6 +46,7 @@ INSTALLED_APPS = [
     'django_filters',
     
     # Local
+    'apps.accounts',
     'apps.routers',
     'apps.devices',
     'apps.network',
@@ -90,8 +90,16 @@ WSGI_APPLICATION = 'wifi_manager.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'servolltechco_wifi',
+        'USER': 'servolltechco_basaas',
+        'PASSWORD': 'KGZN93FlI0F9viS*',              # Empty string = no password
+        'HOST': '127.0.0.1',       # Use IP, not 'localhost'
+        'PORT': '3306',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+            'charset': 'utf8mb4',
+        },
     }
 }
 
@@ -123,8 +131,12 @@ TIME_ZONE = 'Africa/Nairobi'
 USE_I18N = True
 USE_TZ = True
 
-STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = '/home/servolltechco/wifi-backend.servolltech.co.ke/wifi_manager/staticfiles'
+STATIC_URL = '/static/'
+
+MEDIA_ROOT = '/home/servolltechco/wifi-backend.servolltech.co.ke/wifi_manager/media'
+MEDIA_URL = '/media/'
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # DRF
@@ -165,3 +177,10 @@ CELERY_BEAT_SCHEDULE = {
 
 
 AUTH_USER_MODEL = 'accounts.User'
+
+
+# settings.py
+try:
+    from .settings_local import *
+except ImportError:
+    pass

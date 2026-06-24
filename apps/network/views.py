@@ -2,26 +2,21 @@ from rest_framework import viewsets, status
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.decorators import action
+from rest_framework.permissions import IsAuthenticated
+
 from django.utils import timezone
 from datetime import timedelta
-from .models import Subnet, NetworkSettings, BandwidthLog
-from .serializers import SubnetSerializer, NetworkSettingsSerializer, BandwidthLogSerializer
 
+from .models import Subnet, NetworkSettings, BandwidthLog
+from .serializers import (
+    SubnetSerializer,
+    NetworkSettingsSerializer,
+    BandwidthLogSerializer,
+)
 class SubnetViewSet(viewsets.ModelViewSet):
     queryset = Subnet.objects.all()
     serializer_class = SubnetSerializer
 
-# class NetworkSettingsView(APIView):
-#     def get(self, request):
-#         settings = NetworkSettings.load()
-#         return Response(NetworkSettingsSerializer(settings).data)
-
-#     def post(self, request):
-#         settings = NetworkSettings.load()
-#         serializer = NetworkSettingsSerializer(settings, data=request.data, partial=True)
-#         serializer.is_valid(raise_exception=True)
-#         serializer.save()
-#         return Response(serializer.data)
 
 class NetworkSettingsView(APIView):
     permission_classes = [IsAuthenticated]
