@@ -442,3 +442,5 @@ k8s/secrets/
 
 # Documentation builds
 site/
+
+wifi_manager/settings_live.py

@@ -4,14 +4,14 @@ import sys
 # ============================================================
 # 1. Force Passenger to use your virtualenv's Python 3.9
 # ============================================================
-INTERP = "/home/servolltechco/virtualenv/wifi_manager/3.9/bin/python"
+INTERP = "/home/servolltechco/virtualenv/wifi-backend/wifi_manager/3.9/bin/python"
 if sys.executable != INTERP:
     os.execl(INTERP, INTERP, *sys.argv)
 
 # ============================================================
 # 2. Add project paths
 # ============================================================
-PROJECT_ROOT = "/home/servolltechco/wifi-backend.servolltech.co.ke/wifi_manager"
+PROJECT_ROOT = "/home/servolltechco/wifi-backend/wifi_manager"
 sys.path.insert(0, PROJECT_ROOT)
 sys.path.insert(0, os.path.join(PROJECT_ROOT, 'wifi_manager'))
 
