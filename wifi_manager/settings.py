@@ -91,15 +91,11 @@ WSGI_APPLICATION = 'wifi_manager.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'servolltechco_wifi',
-        'USER': 'servolltechco_basaas',
-        'PASSWORD': 'KGZN93FlI0F9viS*',              # Empty string = no password
-        'HOST': '127.0.0.1',       # Use IP, not 'localhost'
+        'NAME': 'wifi_manager',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': '127.0.0.1',
         'PORT': '3306',
-        'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-            'charset': 'utf8mb4',
-        },
     }
 }
 
