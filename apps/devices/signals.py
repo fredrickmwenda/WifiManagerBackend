@@ -55,8 +55,30 @@ def handle_new_device(sender, instance, created, **kwargs):
                 message=f'{instance.name} ({instance.ip_address}) was auto-blocked (not in whitelist).',
             )
         return
+    
+    # In apps/devices/signals.py - inside handle_new_device, after blocking:
 
-    # Layer 2: Paid router subscription enforcement with MAC bypass
+    if not mac_bypass:
+        instance.status = 'blocked'
+        instance.save(update_fields=['status'])
+        
+        # Store the router ID so captive portal knows where they came from
+        # You can use session or a simple pending device record
+        # For now, we just block and the frontend /plans page handles the rest
+        
+        Notification.objects.create(
+            notification_type='subscription_expired',
+            device=instance,
+            title='Access denied - Payment required',
+            message=(
+                f'{instance.name} blocked on paid router {router.name}. '
+                f'Visit https://surfnet.servolltech.co.ke/plans to purchase access.'
+            ),
+            whatsapp_number=instance.phone_number,
+        )
+        return
+
+    # Layer 3: Paid router subscription enforcement with MAC bypass
     if router and router.access_mode == 'paid':
         has_active_sub = Subscription.objects.filter(
             device=instance,
@@ -89,7 +111,7 @@ def handle_new_device(sender, instance, created, **kwargs):
                 )
                 return
 
-    # Layer 3: Device is cleared for access
+    # Layer 4: Device is cleared for access
     if settings.new_device_alerts:
         Notification.objects.create(
             notification_type='new_device',
